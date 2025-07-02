@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { HelloWorld } from './hello-world/hello-world';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, HelloWorld],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -30,7 +31,7 @@ export class App {
     this.showHobbies = !this.showHobbies;
   }
 
-  newHooby(hobby : any) {
+  newHobby(hobby : any) {
     //console.log(hobby.value);
     this.hobbies.push(hobby.value);
     hobby.value = "";
