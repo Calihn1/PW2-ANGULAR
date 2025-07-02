@@ -7,7 +7,7 @@ import { Post } from './Post';
 })
 export class Data {
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient : HttpClient) {
     console.log("Service working ...");
   }
 

@@ -8,7 +8,8 @@ import { Data } from './data';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule, Data],
+  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule],
+  providers : [Data],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -17,22 +18,26 @@ export class App {
   protected title = 'my-dream-app';
   name : string = "Emanuel Hilacondo Begazo";
   age : number = 18;
-  email; // : string ;
-  webpage : string;
-  hobbies : string[];
-  showHobbies: boolean;
+  email: string = "ehilacondob@unsa.edu.pe";
+  webpage : string = "http://www.unsa.edu.pe";
+  hobbies : string[] = ["Futbol","Programación","Videojuegos"];
+  showHobbies: boolean = false;
   users = ['ryan', 'joe', 'cameron', 'john'];
   activated = false;
 
-
-  constructor() {
+  constructor(private data: Data) {
+    this.data.getData().subscribe(data => {
+      console.log(data);
+    })
+  }
+  /* constructor() {
     console.log("Constructor working...");
     this.name = "Emanuel Hilacondo B.";
     this.email = "ehilacondob@unsa.edu.pe";
     this.webpage = "http://www.unsa.edu.pe";
     this.hobbies = ["Futbol","Programación","Videojuegos"];
     this.showHobbies = false;
-  }
+  } */
 
   toggleHobbies() {
     this.showHobbies = !this.showHobbies;
