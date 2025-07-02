@@ -4,10 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { HelloWorld } from './hello-world/hello-world';
 import { User } from './user/user';
 import { FormsModule } from '@angular/forms';
+import { Data } from './data';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule],
+  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule, Data],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
