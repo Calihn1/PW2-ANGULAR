@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Route } from '@angular/router';
 import { HelloWorld } from './hello-world/hello-world';
 import { User } from './user/user';
 import { FormsModule } from '@angular/forms';
