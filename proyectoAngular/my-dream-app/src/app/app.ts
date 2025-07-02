@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HelloWorld } from './hello-world/hello-world';
 import { User } from './user/user';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HelloWorld, User],
+  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
 export class App {
   protected title = 'my-dream-app';
-  name : string;
+  name : string = "Emanuel Hilacondo Begazo";
+  age : number = 18;
   email; // : string ;
   webpage : string;
   hobbies : string[];
@@ -21,9 +23,10 @@ export class App {
   users = ['ryan', 'joe', 'cameron', 'john'];
   activated = false;
 
+
   constructor() {
     console.log("Constructor working...");
-    this.name = "Emanuel Hilacondo Begazo";
+    this.name = "Emanuel Hilacondo B.";
     this.email = "ehilacondob@unsa.edu.pe";
     this.webpage = "http://www.unsa.edu.pe";
     this.hobbies = ["Futbol","Programación","Videojuegos"];
