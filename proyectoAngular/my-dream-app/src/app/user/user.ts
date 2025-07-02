@@ -7,5 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrl: './user.css'
 })
 export class User implements OnInit {
-  @Input() nameUser;
+  @Input() nameUser : any;
+
+  ngOnInit(): void {
+  }
 }
