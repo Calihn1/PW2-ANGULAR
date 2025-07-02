@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, Route } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { HelloWorld } from './hello-world/hello-world';
 import { User } from './user/user';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Post } from './Post';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, HelloWorld, User, FormsModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, HelloWorld, User, FormsModule],
   providers : [Data],
   templateUrl: './app.html',
   styleUrl: './app.css'
