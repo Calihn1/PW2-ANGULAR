@@ -5,6 +5,7 @@ import { HelloWorld } from './hello-world/hello-world';
 import { User } from './user/user';
 import { FormsModule } from '@angular/forms';
 import { Data } from './data';
+import { Post } from './Post';
 
 @Component({
   selector: 'app-root',
@@ -24,10 +25,12 @@ export class App {
   showHobbies: boolean = false;
   users = ['ryan', 'joe', 'cameron', 'john'];
   activated = false;
+  posts : any[] = [];
 
   constructor(private data: Data) {
     this.data.getData().subscribe(data => {
-      console.log(data);
+      //console.log(data);
+      this.posts = data;
     })
   }
   /* constructor() {
