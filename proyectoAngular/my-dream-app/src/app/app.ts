@@ -40,6 +40,10 @@ export class App {
     hobby.value = "";
     return false;
   }
+
+  sayHello() {
+    alert("Hola desde app");
+  }
 }
 
 
