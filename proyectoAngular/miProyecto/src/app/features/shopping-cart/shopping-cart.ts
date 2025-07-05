@@ -1,11 +1,28 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { CartItem } from '../../core/models/cart-item';
+import { CartService } from '../../core/services/cart';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './shopping-cart.html',
-  styleUrl: './shopping-cart.css'
+  styleUrls: ['./shopping-cart.css']
 })
 export class ShoppingCart {
+  // Obtenemos los observables directamente del servicio
+  items$: Observable<CartItem[]> = cartService.items$;
+  total$: Observable<number> = cartService.total$;
 
+  constructor(private cartService: CartService) {}
+
+  onToggleItem(id: number): void {
+    this.cartService.toggleItemCompletion(id);
+  }
+
+  onDeleteItem(id: number): void {
+    this.cartService.deleteItem(id);
+  }
 }
