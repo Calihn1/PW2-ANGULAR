@@ -12,11 +12,14 @@ import { CartService } from '../../core/services/cart';
   styleUrls: ['./shopping-cart.css']
 })
 export class ShoppingCart {
-  // Obtenemos los observables directamente del servicio
-  items$: Observable<CartItem[]> = cartService.items$;
-  total$: Observable<number> = cartService.total$;
+  items$: Observable<CartItem[]>;
+  total$: Observable<number>;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {
+    // Obtenemos los observables directamente del servicio
+    this.items$ = this.cartService.items$;
+    this.total$ = this.cartService.total$; 
+  }
 
   onToggleItem(id: number): void {
     this.cartService.toggleItemCompletion(id);
