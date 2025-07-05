@@ -1,1 +1,45 @@
-<p>shopping-cart works!</p>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h4>Carrito de Compras - ShoppingList</h4>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped mb-0">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">✓</th>
+              <th scope="col">Producto</th>
+              <th scope="col" class="text-end">Precio</th>
+              <th scope="col" class="text-center">Cant.</th>
+              <th scope="col" class="text-end">Subtotal</th>
+              <th scope="col" class="text-center">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items$ | async">
+              <td class="text-center align-middle">
+                <input class="form-check-input" type="checkbox" [checked]="item.completed" (change)="onToggleItem(item.id)">
+              </td>
+              <td class="align-middle">{{ item.name }}</td>
+              <td class="text-end align-middle">{{ item.price | currency }}</td>
+              <td class="text-center align-middle">{{ item.quantity }}</td>
+              <td class="text-end align-middle fw-bold">{{ (item.price * item.quantity) | currency }}</td>
+              <td class="text-center align-middle">
+                <button class="btn btn-danger btn-sm" (click)="onDeleteItem(item.id)">
+                  <i class="bi bi-trash-fill"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer text-end">
+      <h5 class="mb-0">
+        Total a pagar:
+        <span class="badge bg-success fs-5 ms-2">{{ total$ | async | currency:'USD':'symbol':'1.2-2' }}</span>
+      </h5>
+    </div>
+  </div>
+</div>
