@@ -1,12 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Pipe({
-  name: 'safe'
+  name: 'safeUrl',
+  standalone: true
 })
-export class SafePipe implements PipeTransform {
+export class SafeUrlPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  constructor(private sanitizer: DomSanitizer) {}
+
+  // Esta funcion tomara un URL y lo marcara como segura para ser usada en un iframe
+  transform(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
-
 }
