@@ -11,11 +11,8 @@ import { Api } from './api';
 })
 export class App {
   protected title = 'crud';
-  movies = [
-    { id: 1, title: 'peli1', desc: 'desc1', year: 2021 },
-    { id: 2, title: 'peli2', desc: 'desc2', year: 2022 }
-  ];
-
+  movies: any[] = [];
+    
   constructor(private api: Api) {
     this.getMovies();
   }
@@ -24,7 +21,7 @@ export class App {
     this.api.getAllMovies().subscribe(
       data => {
         console.log(data);
-        // this.movies = data;  // Puedes descomentar esta línea para asignar los datos recibidos
+        this.movies = data;  // Puedes descomentar esta línea para asignar los datos recibidos
       },
       error => {
         console.log(error);
